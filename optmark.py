@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import sys
 import json
 import gzip
@@ -98,7 +99,10 @@ def usefile(root, fname, relative, interesting):
         with gzip.GzipFile(fname, 'r') as z:
             data = z.read()
             j = json.loads(data.decode('utf-8'))
-            handle(root, j, relative, interesting)
+            try:
+                handle(root, j, relative, interesting)
+            except BrokenPipeError:
+                pass
         return True
     except OSError:
         return False
