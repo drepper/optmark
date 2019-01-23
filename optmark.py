@@ -53,7 +53,7 @@ def handle(root, tree, relative, interesting):
                 if len(interesting) == 0 or fn in interesting:
                     if not fn in files:
                         files[fn] = []
-                    linedata = { 'line': l['line'], 'column': l['column'], 'kind': r['kind'], 'what': r['message'][0].strip() }
+                    linedata = { 'line': l['line'], 'column': l['column'], 'kind': r['kind'], 'what': r['message'][0].strip() if len(r['message']) > 0 else '** no message **' }
                     if linedata['what'] in inlwhat:
                         linedata['inlfunction'] = r['message'][inlwhat[linedata['what']]]['symtab_node']
                     if 'pass' in r and r['pass'] in passes:
