@@ -7,11 +7,15 @@ import getopt
 
 
 def read_passes(tree):
+    """
+    Recursively flatten JSON tree of passes into a single dictionary,
+    mapping from pass ids to pass names
+    """
     result = {}
     for e in tree:
         result[e['id']] = e['name']
         if 'children' in e:
-            result = { **result, **read_passes(e['children']) }
+            result.update(read_passes(e['children']))
     return result
 
 
