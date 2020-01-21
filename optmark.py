@@ -97,7 +97,7 @@ def handle(root, tree, relative, interesting):
                                 break
                     if doprint:
                         lastline['what'].append(s)
-                        print('{}{}^ {}{}'.format(colors[loc['kind']], " "*(loc['column']+5), s, coloroff))
+                        print('{}{}^ {}{}'.format(colors[loc['kind']], " "*(loc['column']+6), s, coloroff))
                     try:
                         loc = next(itloc) if itloc else None
                     except StopIteration:
