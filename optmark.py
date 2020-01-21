@@ -39,7 +39,7 @@ def loc_compare(rec1, rec2):
     return 0
 
 
-colors = { 'success': '\x1b[1;37;42m', 'failure': '\x1b[1;41m', 'note': '\x1b[1;37;44m', 'scope': '\x1b[45m' }
+colors = { 'success': '\x1b[1;37;42m', 'failure': '\x1b[1;41m', 'note': '\x1b[1;37;44m', 'scope': '\x1b[30;45m' }
 coloroff = '\x1b[0m'
 
 inlwhat = { 'Inlining': 1, 'Inlined': 1, 'will not early inline:': 3, 'not inlinable:': 3, 'Considering inline candidate': 1 }
